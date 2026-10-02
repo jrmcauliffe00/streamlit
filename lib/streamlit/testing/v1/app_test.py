@@ -498,6 +498,11 @@ class AppTest:
                 start_file_watching=False
             )
             self._bidi_component_manager = bidi_component_manager
+        else:
+            self._bidi_component_manager.clear()
+            self._bidi_component_manager.discover_and_register_components(
+                start_file_watching=False
+            )
         mock_runtime.bidi_component_registry = self._bidi_component_manager
         Runtime._instance = mock_runtime
         script_cache = ScriptCache()
